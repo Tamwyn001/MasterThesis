@@ -1,0 +1,213 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+    \subsection{The Berry phase}
+    After a closed loop one could always add a phase factor leaving the physics unchanged. However after a more careful study of the gauge,
+    flourishing research has emerged from the so-called Berry phase. One could explain the anomalous and quantum Hall effect, as well as ..
+
+    We will begin with a quick introduction of the Berry phase on a simple system. Following these introductory results, we will show that the 
+    Berry curvature contributes to the velocity and generates a transverse Hall resistivity. 
+    To the time evolution $\exp(\im / \hbar E t)$ of an instantaneous eigenstate one can always add a phase factor $\exp(\im \gamma)$. During a measurement
+    the state will be projected, and the measured physics remains the same. However, the phase factor $\gamma$ give interesting insights on the geometry
+    of the eigenstate space and contribute to the transport quantities. 
+    We will closely follow the work of \cite{Xiao2010-lt, Berry1984-gt}.
+
+    \subsubsection{Definitions of Berry phase and curvature}
+    \newcommand{\R}{(\bm{R})}
+    Let us consider a system which adiabatically evolves. A set of parameter are considered ``slowly'' varying in time, such that the instantaneous eigenstates remain unchanged.
+    This can be described as a set of time-dependent parameter $\bm{R(t)}=(X,Y,..)$ (e.g. momentum, magnetic field, ..) that evolve in the parameter space.
+    We enforce here, that the parameter evolution happens on a closed path $\mathcal{C}$ in the parameter space within the time interval $[0,T]:~R(0)=R(T)$.
+    The adiabatic approximation requires a large $T$. This means that the parameter need to vary slowly enough to such that this approximation hold. 
+    For the sake of readability, we assume $R$ is always time-dependent, and $\bm{R}:=\bm{R}(t)$ 
+    unless else mentioned.\newline
+
+    We start with a time-dependent Schrödinger equation for a Hamiltonian $\hat{H}\R$:
+    \begin{align}\label{eq:Berry_Ham}
+        \hat{H}\R |\psi(t)\rangle = \im\hbar \partial_t|\psi(t)\rangle.
+    \end{align}
+    The discrete instantaneous eigenstates have energy $E_n\R$ and satisfy the equation
+    \begin{align*}
+        \hat{H}\R |n\R\rangle = E_n\R |n\R\rangle.
+    \end{align*}
+    Using the interaction picture one finds
+    \begin{align}\label{eq:Berry_Psi}
+        |\psi(t)\rangle = \exp\left(-\frac{\im}{\hbar} \int_{0}^{t} \dd t' E_n\bigl(\bm{R}(t')\bigr)\right) \exp\bigl(\im \gamma_n(t)\bigr)|n\R\rangle.
+    \end{align}
+    We now need to define the phase factor $\gamma$ so, that $ |\psi(t)\rangle$ fulfills the Schrödinger equation. This is done by inserting Eq.\ref{eq:Berry_Psi} into
+    \ref{eq:Berry_Ham} and projecting on the state $\langle n\R|$.  This reveals the time evolution of the gamma factor:
+    \begin{align*}
+        \partial_t \gamma_n(t) = \im \langle n\R | \nabla_{\bm{R}} | n \R\rangle \cdot \partial_t \bm{R}.
+    \end{align*}
+    This leads the evolution of $|\psi(T)\rangle$ on the former time interval:
+    \begin{align}\label{eq:Berry_PsiT}
+        |\psi(T)\rangle = \exp\bigl(\im \gamma_n(\mathcal{C})\bigr) \exp\left(-\frac{\im}{\hbar} \int_{0}^{t} \dd t' E_n\bigl(\bm{R}(t')\bigr)\right) \psi(0)\rangle
+    \end{align}
+    which delivers a phase factor defined on the closed path $\mathcal{C}$ that we label as geometrical phase change
+    \begin{align}\label{eq:Berry_gammaC}
+        \gamma_n(\mathcal{C}) =& \oint_{\mathcal{C}} \underbrace{\im \langle n\R | \nabla_{\bm{R}} | n \R\rangle}_{\mathcal{A}_n\R} \dd \bm{R}.
+    \end{align}
+    Therefor, the Berry phase is time-independent when varying $\bm{R}(t)$ on a closed path. We thus neglect the time dependence of the phase $\gamma$.  $\mathcal{A}_n\R$ is 
+    gauge dependent. We consider the following transformation:
+    \begin{align}\label{eq:Berry_gauge_A}
+        |n\rangle \rightarrow \exp\bigl(\im \mu\R\bigr)|n\rangle \hspace*{18pt}\Longrightarrow\hspace*{18pt}       \mathcal{A}_n\R \rightarrow  \mathcal{A}_n\R  - \nabla_{\bm{R}} \mu\R.
+    \end{align}
+    Along $\mathcal{C}$, $\gamma$ is changed by $\mu\bigl(\bm{R}(0)\bigr) - \mu\bigl(\bm{R}(0)\bigr) $, as the integral suggests. On a closed path $\bm{R}(0) = \bm{R}(T)$.
+     Our former choice of $|n\rangle$ demands $ \exp\bigl(\im \mu\R\bigr)$ to be single valued. It follows 
+    \begin{align*}
+        \mu\bigl(\bm{R}(0)\bigr) - \mu\bigl(\bm{R}(T)\bigr) = 2\pi \cdot n, ~ n\in \mathbb{Z},
+    \end{align*}
+    and therefore the Berry phase is gauge invariant on a closed path in parameter space.\\
+
+    Due to normalization concerns for $|\psi(T)\rangle$ in Eq.\ref{eq:Berry_PsiT}, the phase factor needs to be real  so that must be imaginary $\langle n | \nabla_{\bm{R}} | n \rangle$.
+    We can avoid knowing the single-valued basis $|n\rangle$ by that considering the line integral over $\mathcal{C}$ 
+    as a surface integral over $\mathcal{S}$ using Stockes' theorem. This derivation however holds best
+    in the three-dimensional parameter space.
+    \begin{align*}
+        \gamma_n(\mathcal{C}) = -\mathcal{I}m \int_{\mathcal{S}} \dd \bm{S} \cdot \sum_{n\neq m} \langle\nabla n|m\rangle\times \langle m | \nabla n\rangle.
+    \end{align*}
+
+    The exclusion ensures the quantity remains imaginary. Further we have 
+    \begin{align*}
+        \langle n|\nabla n \rangle = \langle \nabla \hat{H} | n\rangle / (E_n - E_m) \quad,~ m\neq m.
+    \end{align*}  
+    This yield a new expression for $\gamma_n$ 
+    \begin{align*}
+        \gamma_n = -\int_{\mathcal{S}} \bm{\Omega_n} \dd\bm{S}
+    \end{align*}
+    with  $\bm{\Omega_n}$ the so-called Berry-curvature 
+    \begin{align}\label{eq:Berry_curvature}
+         \bm{\Omega_n} = \mathcal{I}m \sum_{n\neq m} \frac{\langle n\R| \nabla_{\bm{R}}\hat{H}\R |m\R\rangle \times \langle m \R | \nabla_{\bm{R}}\hat{H}\R |n\R\rangle}{\bigl(E_m\R -E_n\R\bigr)^2}.
+    \end{align}
+    As we see there is no need for $|n\R\rangle$ to be single-valued. Using a gauge transformation ($|n\R\rangle$ implicit).
+    \begin{align*}
+        |n\rangle \rightarrow \exp\bigl(\im \mu\R\bigr)|n\rangle \hspace*{18pt}\Longrightarrow\hspace*{18pt} \langle n|\nabla n\rangle \rightarrow \langle n|\nabla n\rangle + \im \nabla_{\bm{R}}\mu\R,
+    \end{align*}
+    we see that the former condition requires the vector's curl to be unique, but the vector itself not. From this point of view, the Berry curvature $\bm{\Omega_n}$ can be seen as a magnetic field in the parameter space, whose vector potential
+    is $\mathcal{I}m\langle n|\nabla n\rangle$. Ref. \cite{Berry1984-gt} mentions that generalizing the Stockes' theorem requires replacing $\times$ by a wedge product and $\nabla$ by an exterior derivative. They
+    further emphasize, that there are an infinity of choice of interpolating Hamiltonians, whose parameters must remain on the surfaces  bounded by $\mathcal{C}$. The geometrical phase remains independent of that choice, consistently with former statements.\newline
+
+    Equation \ref{eq:Berry_curvature} describes the Berry curvature as the residual interaction of the projected-out energy levels onto $|n\rangle$, the level considered by the adiabatic approximation \cite{Xiao2010-lt}.
+    Studying the poles of Eq.\ref{eq:Berry_curvature} reveals that the curvature accumulates around degeneracy points. This leads to the Chern number, which has important implications into electronic transport properties.
+
+    Besides these considerations, the derivation of the curvature can also be carried out with other arguments, yielding to a new velocity term. Starting from the gauge argument Eq.\ref{eq:Berry_gauge_A} over, we can similarly to 
+    electrodynamics assign a gauge field tensor definition to the curvature \cite{Xiao2010-lt}
+    \begin{align*}
+        \Omega^n_{\mu\nu}\R =& \frac{\partial}{\partial R^{\mu}}\mathcal{A}^n_{|\nu}\R - \frac{\partial}{\partial R_{\nu}}\mathcal{A}^n_{|\mu}\R\\
+        =& \im\left[\left\langle \frac{\partial n\R}{\partial R^{\mu}}|\frac{\partial n\R}{\partial R^{\nu}}\right\rangle - (\nu\leftrightarrow\mu)\right]. 
+    \end{align*}
+     Which from it follows in a three-dimensional parameter space $\bm{\Omega}_n\R = \nabla_{\bm{R}}\times\mathcal{A}_n\R$
+    And as mentioned earlier, the phase can be described with the use of a wedge product in the general case
+    \begin{align*}
+        \gamma_n = \frac{1}{2}\int_{\mathcal{S}} \dd R^{\mu}\wedge \dd R^{\nu}\Omega^n_{\mu\nu}\R.
+    \end{align*}
+   
+    \subsubsection{Berry phase of Bloch states}
+    After these formal phase and curvature introduction, we wish to apply our model on crystalline solids. We will first work with the independent electron approximation to highlight simple transport properties and later
+    introduce interaction and disorder. For a single electron in a periodic potential of a crystal with Bravais lattice vector $\bm{a}$ we have the following Hamiltonian
+    \begin{align*}
+        \hat{H} = \frac{\hat{p}}{2m} + \hat{V}(\bm{r}), ~ ~\hat{V}(\bm{r}) = \hat{V}(\bm{r} + \bm{a}) .
+    \end{align*}
+    The effects we want to describe with the Berry phase depend on the momentum (e.g. applying a magnetic field). It is therefore convenient to switch to a momentum description.
+    The Bloch's theorem yields the boundary condition
+    \begin{align*}
+        \psi_{n\bm{q}}(\bm{r}+\bm{a}) = e^{\im\bm{q}\cdot\bm{a}}\psi_{n\bm{q}}(\bm{r})
+    \end{align*}
+    with $n$ the band index, $\bm{q}$ the canonical momentum and $\hbar\bm{q}$ the crystal momentum defined in the Brillouin zone.
+    We can then consider all $\psi$ satisfying the above expression with the same $\bm{q}$ part of the Hilbert space $\mathcal{H}_{\bm{q}}$.
+    This is important to mention, since the Berry phase works inside elements of the same Hilbert space.
+
+    As seen earlier, we need a proper defined parameter space $\R$ in which we want to include $\bm{q}$. We first start by the following  transformation with unitary operator 
+    $\hat{U} = e^{\im\bm{q}\cdot\bm{r}}$
+    \begin{align*}
+        \hat{H}(\bm{q}) = U^{\dagger}\hat{H}U = \frac{(\hat{\bm{p}} +\hbar \bm{q})^2}{2m} + \hat{V}(\bm{r}).
+    \end{align*}
+    The eigenstates transform accordingly $u_{n\bm{q}}(\bm{r})=e^{\im\bm{q}\cdot\bm{r}}\psi_{n\bm{q}}(\bm{r})$ and are the cell-periodic component of the Bloch
+    function. By substitution, one sees that they further fulfil the boundary condition $u_{n\bm{q}}(\bm{r}+\bm{a}) = u_{n\bm{q}}(\bm{a})$ and now all live in the same Hilbert space:
+    There are indeed no $\bm{q}$-dependent phase anymore.  Therefor, one can identify the Brillouin zone as the parameter space of the transformed $H(\bm{q})$ and $|u_n(\bm{q})\rangle$
+    \cite{Xiao2010-lt}.\\
+
+    From the former section it follows that if the canonical momentum $\bm{q}$ changes in momentum space, then the Bloch state accumulate a Berry phase:
+    \begin{align*}
+        \gamma_n = \oint_{\mathcal{C}} \dd \bm{q} \langle u_n(\bm{q})|\im\nabla_{\bm{q}}|u_n(\bm{q})\rangle.
+    \end{align*}
+    The physical significance is guaranteed only if $\mathcal{C}$ is a closed path, making $\gamma_n$ a gauge invariant quantity. For a closed path of $\bm{q}$ in momentum space, one can for example induce a cyclotron motion
+    with a magnetic field.  An electric field causing a linear change in $\bm{q}$ is also possible, but since $\bm{q}$ must sweep the whole Brillouin zone, this one should be torus-shaped.
+    
+    Since $\bm{q}$ is three-dimensional, one can introduce the curl representation of the Berry curvature for this model:
+    \begin{align*}
+        \bm{\Omega}_n (\bm{q}) = \nabla_{\bm{q}} \times \langle u_n(\bm{q})|\im\nabla_{\bm{q}}|u_n(\bm{q})\rangle.
+    \end{align*} 
+    The Berry curvature is however a local gauge invariant quantity \cite{Xiao2010-lt}. A closed path is not strictly necessary anymore if we describe other quantities of importance with help of 
+    the curvature. We recall the former comment about the uniqueness of the curl. Since the curvature only depends on the wavefunction, it can be seen as an intrinsic property of the system.\\
+
+    Let us now take a step back and consider a one-dimensional band insulator. We apply a slowly varying time-dependent perturbation so that the adiabatic approximation holds.
+    We further impose a periodicity in the perturbation, which makes the Hamiltonian also periodic $H(t) = H(t+T)$. Since the transitional symmetry of the crystal still holds in the Hamiltonian,
+    its has Bloch-type instantaneous eigenstates $e^{\im qx}|u_n(q,t)\rangle$. In momentum space, as we saw earlier, the eigenstates are only the cell-periodic part $|u_n(q,t)\rangle$ of the Bloch state.
+    We treat $q$ and $t$ as two independent variable, which build the parameter space $\bm{R}=(q,t)$. The wavefunction resulting from the variation of the external potential is given in first order
+    and up to a phase factor as \cite{Xiao2010-lt}
+    \begin{align*}
+        |u_n\rangle - \im\hbar \sum_{m\neq n}\frac{|u_m\rangle\langle u_m| \partial_t|u_n\rangle}{\epsilon_n - \epsilon_m}.
+    \end{align*}
+    Using the above-defined unitary operator $U$, the velocity operator can be expressed as
+    \begin{align*}
+        \bm{v} =& \frac{\partial }{\partial t}\bm{r} = \frac{\im}{\hbar}\left[H,\bm{r}\right]\\
+       \rightarrow ~ \bm{v}(\bm{q}) =& \frac{\im}{\hbar}U\left[\bm{r},H\right]U^{\dagger}\\
+        =& \frac{\partial H(\bm{q},t)}{\partial(\hbar\bm{q})}.
+    \end{align*}
+    The time average velocity of the state given to the first order introduces the Berry curvature of the parameter space $(q,t)$
+    \begin{align} \label{eq:Berry_velo}
+        v_n(q) = \frac{\partial\epsilon_n(q)}{\hbar\partial q} - \underbrace{\im  \sum_{m\neq n}\left[\frac{\langle u_n|\partial_q H |u_m\rangle\langle u_m| 
+        \partial_t | u_n\rangle}{\epsilon_n - \epsilon_m} -  \mathrm{h.c.}\right]}_{\Omega^n_{qt}}.
+    \end{align} 
+    This means that the geometry of the parameter space influences the transport in addition to the shape of the bands. 
+
+    \subsubsection{Anomalous velocities and Hall effects}
+    In former teaching books, it was stated that the perturbation of an electric field on an electron modified the motion of the electron in momentum space,
+    but did not take part to the electron velocity:
+    \begin{align*}
+        v_n(\bm{q}) =  \frac{1}{\hbar}\nabla_{\bm{k}}\epsilon_n(\bm{q}).
+    \end{align*}
+    As we saw, the Hall curvature however contributes for Bloch bands. We further follow the work of \cite{Xiao2010-lt}.
+    If we introduce the electric field with a scalar potential, then the periodicity is not fulfilled, and we can't replicate the former derivation of the velocities.
+    Therefor, we make use of a uniform vector potential $\bm{A}(t)$ and the Hamiltonian of an electron in this field is
+    \begin{align*}
+        H(t) = \frac{\bigl(\bm{p} +e\bm{A}(t)\bigr)^2}{2m} + V(\bm{r}).
+    \end{align*}
+    Likewise, we transform to the canonical momentum space $\bm{q}$ and introduce the following gauge transformation
+    \begin{align*}
+        \bm{q} \hspace*{16pt} \Rightarrow \hspace{16pt}\bm{q} +\frac{e}{\hbar}\bm{A}(t) =:\bm{k}.
+    \end{align*}
+    $\bm{k}$ is then the crystal momentum. The parameter dependence of the Hamiltonian follows $H\bigl(\bm{q}(\bm{p}),t\bigr)$. Since $\bm{A}$ further fulfills the transitional symmetry of $\bm{q}$,
+    $\bm{q}$ is a constant of motion and a good quantum number \cite{Xiao2010-lt}. It follows the equation of motion $\partial_t\bm{k} = -e/\hbar\bm{E}$. So by varying $\bm{k}$, we will effectively make use of the electric field on 
+    the electron. Studying the Berry curvature under motion of $\bm{k}$ will reveal insight about non-trivial system response to the electric field. We now aim to use Eq.\ref{eq:Berry_velo} and need to define the derivative 
+    $\nabla_{\bm{R}}$ for our parameter space $\bm{R}=(\bm{k},t)$ \textit{only works 2D?}
+    \begin{align*}
+        \frac{\partial}{\partial q_i} = \frac{\partial}{\partial k_i}~,~~ ~ \frac{\partial}{\partial t} = -\frac{e}{\hbar} E_i\frac{\partial}{\partial k_i},
+    \end{align*}
+    \textit{What is $i$?} from which follows the anomalous velocity $\bm{v}_n$ and the Berry curvature $\bm{\Omega}_n$ of the $n$th energy level:
+    \begin{align}\label{eq:Berry_velo_Efield}
+        \bm{v}_n(\bm{k}) = \frac{1}{\hbar}\nabla_{\bm{k}}\epsilon_n(\bm{k}) - \frac{e}{\hbar} \bm{E}\times\bm{\Omega}_n(\bm{k}),
+    \end{align}
+    \begin{align*}
+        \bm{\Omega}_n(\bm{k}) = \im \langle \nabla_{\bm{k}} u_n(\bm{k}) | \times | \nabla_{\bm{k}} u_n(\bm{k})\rangle.
+    \end{align*}
+    Since the anomalous part of velocity is always perpendicular to the electric field, it engenders a Hall current. 
+    These velocities were first observed theoretically and experimentally by different means in the fifties \cite{Adams1952-ig,Karplus1954-xi,Kohn1957-nd}
+    and much later the connection with the Berry phase was established. \\
+
+    Studies made successful description of diverse electronic transport properties before the Berry phase was discovered, because in a wide range of material the curvature vanishes leaving no 
+    anomalous velocities. The behavior of the Berry curvature $\bm{\Omega}$ can be understood by studying symmetries. Under time reversal, $\bm{v}_n$ and $\bm{k}$ change sign and
+    $\bm{E}$ remains unchanged. Under spatial inversion both $\bm{v}_n,\bm{k}$  and $\bm{E}$ flip sign. From Eq.\ref{eq:Berry_velo_Efield}, a time-reversal symmetry requires the curvature
+    to be an odd function
+    \begin{align*}
+        \bm{\Omega_n}(-\bm{k}) = -\bm{\Omega}_n(\bm{k}).
+    \end{align*}
+    For spatial-inversion symmetry, we need an even curvature   
+     \begin{align*}
+        \bm{\Omega_n}(-\bm{k}) = \bm{\Omega}_n(\bm{k}).
+    \end{align*}
+    As soon as the system breaks time-reversal or spatial-inversion symmetry, the Berry curvature is non-zero and the anomalous part of the velocities appears: There is a net Hall current.
+    This symmetry breaking happens for example in the presence of a (anti-) ferromagnetic phase. We recall here, that due to Eq.\ref{eq:Berry_curvature}, the curvature accumulates around degeneracy points,
+    and the Hall current may be the strongest for charge carrier on such points.
+
+    \end{document}

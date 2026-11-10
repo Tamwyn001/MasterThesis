@@ -1,0 +1,22 @@
+\input{header.tex}
+\begin{document}
+
+\subfile{Pages/0.title.tex}
+\newpage
+\section{Introduction}
+\subfile{Pages/0.Berry.tex}
+
+
+\section{Conclusion}
+
+% \appendix
+% \subfile{pages/A1.UnitTrafo.tex}
+\renewcommand{\thesection}{\arabic{section}}
+\setcounter{section}{3}
+\section{Note on use of generative AI}
+For ethical reasons, the author would like to mention the use of OpenAI's GPT 4 model, alongside with Anthropic's
+Claude Sonnet 5 model as a tool for understanding statements made by the following-up references and for rephrasing.
+Further, DeepL GmbH's DeepL model was used for translations.
+
+\printbibliography
+\end{document}
