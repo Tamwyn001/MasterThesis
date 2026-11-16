@@ -8,12 +8,81 @@
 
     Since the p and n dotted material have opposite sign in the charge, the y will move in opposite direction under influence of a uniform electric field.
     If we connect the two material to a potential-difference source, it will either make the gap larger or the charge carrier will flow.  
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[darkstyle/.style={circle,draw,fill=gray!40,minimum size=5pt, inner sep=0pt},
+            lightstyle/.style={circle,draw,fill=red!40,minimum size=5pt, inner sep=0pt}]
+            \draw[fill=purple, fill opacity=0.2, dotted] (-1.5-2.25,0) rectangle ++(1,1.5);
+            \draw[draw=black,-] (-1-2.25,0)-- ++(0,1.5);
+            \draw[draw=black] (-3-2.25,0) rectangle ++(4,1.5);
+            \foreach \x in {0,...,4}
+                \foreach \y in {0,...,4} {
+                    \node[darkstyle] at
+                    ({0.3*\x + 0.1*mod(\y,2) -2.85 -2.25}, {0.3*\y + 0.15}) {};
+                    \node[lightstyle] at
+                    ({-0.3*\x - 0.1*mod(\y,2) +0.85-2.25}, {0.3*\y + 0.15}) {};
+                    }
 
+            \foreach \x in {0,...,2}
+                \foreach \y in {0,...,4}{
+                    \pgfmathtruncatemacro{\result}{mod(\x,2)}
+
+                    \ifnum\result=1
+                        \node[darkstyle] at ({0.275*\x-1.4+0.1*mod(\y,2)-2.25},0.3*\y+ 0.15) {};
+                    \else
+                        \node[lightstyle] at ({0.275*\x-1.4+0.1*mod(\y,2)-2.25},0.3*\y+ 0.15) {};
+                    \fi}
+                \foreach \y in {0,...,2} \node[darkstyle] at ( -0.6-2.25, {0.6*\y + 0.15}) {};
+
+            \draw[fill=purple, fill opacity=0.2, dotted] (-1.5+2.25,0) rectangle ++(1,1.5);
+            \draw[draw=black,-] (-1+2.25,0)-- ++(0,1.5);
+            \draw[draw=black] (-3+2.25,0) rectangle ++(4,1.5);
+            \foreach \x in {0,...,4}
+                \foreach \y in {0,...,4} {
+                    \node[darkstyle] at
+                    ({0.3*\x + 0.1*mod(\y,2) -2.85 +2.25}, {0.3*\y + 0.15}) {};
+                    \node[lightstyle] at
+                    ({-0.3*\x - 0.1*mod(\y,2) +0.85+2.25}, {0.3*\y + 0.15}) {};
+                    }
+
+
+            \draw[draw=black] (-6.25,-1.85) rectangle ++(4,1.5);
+             \draw[draw=black,-] (-4.25,-1.85)-- ++(0,1.5);
+
+
+            \foreach \x in {0,...,2}
+                \foreach \y in {0,...,4} {
+                    \node[darkstyle] at
+                    ({0.2*\x + 0.1*mod(\y,2) -6.1}, {0.3*\y + 0.15-1.85}) {};
+                    \node[lightstyle] at
+                    ({-0.2*\x - 0.1*mod(\y,2) -2.4}, {0.3*\y + 0.15-1.85}) {};
+                    }
+
+
+            \draw[draw=black] (0.25,-1.85) rectangle ++(4,1.5);
+            \draw[draw=black,-] (2.25,-1.85)-- ++(0,1.5);
+
+          \foreach \x in {0,...,3}
+                \foreach \y in {0,...,4}{
+                    \pgfmathtruncatemacro{\result}{mod(\x,2)}
+
+                    \ifnum\result=1
+                        \node[darkstyle] at ({0.75*\x+0.5+0.7*mod(\y,2)+0.25},0.3*\y+ 0.15-1.85) {};
+                        \draw[->,thin] ({0.75*\x+0.5+0.7*mod(\y,2)+0.25},0.3*\y+ 0.15-1.85) --++(0.3,0);
+                    \else
+                        \node[lightstyle] at ({0.75*\x+0.5+0.7*mod(\y,2)+0.25}, 0.3*\y+ 0.15-1.85) {};
+                        \draw[->,thin] ({0.75*\x+0.5+0.7*mod(\y,2)+0.25}, 0.3*\y+ 0.15-1.85) -- ++(-0.3,0);
+                    \fi}
+        \end{tikzpicture}
+        \caption{(Top) the electrons and holes at equilibrium after bringing the p and n dotted material at an interface.
+            (Left) the reversed direction where the current is blocked. (Right) the forward direction lets the current flow.
+        }
+    \end{figure}
 \subsection{Superconducting diode}
 In a superconductor we have no electric resistivity. However, when we leave the superconducting phase by applying too much temperature or magnetic field,
 the superconductivity breaks and the standard IV-characteristic of the metal is back. A superconducting diode is superconducting for current $I_1$ and
 is in the normal state for $I_2 = -I_1$. Therefor, the current $I_1$ flows without resistivity and $I_2$ gets partially blocked.  They are the same current with opposite 
-polarity.  So the superconducting diode need an asymetry in its IV-characteristic.
+polarity.  So the superconducting diode need an asymmetry in its IV-characteristic.
 
 
 
