@@ -2,9 +2,17 @@
 \begin{document}
 \subsection{The superconducting diode effect}
 \subsubsection{A classical diode working scheme}
-    A diode is a ubiquitous component of electric circuits. It has two poles and allows the current to flow in one direction only. This is achieved with p and n dotted
-    materials which one brings together at an interface. Due to local Coulomb interactions, the charge carriers rearrange themselves around the interface, forming the depletion region.
-    This blending changes the charge density and an electric field forms around the interface, preventing further leakage between the two semiconductors.
+    A diode is a ubiquitous component of electric circuits. It has two poles and allows the current to flow in one direction only. 
+    Let us consider one semiconductor that has been doped with an excess of electrons (n-dotted) and another one with an excess of 
+    holes (p-dotted). One now brings them together at an interface. First due to diffusion some electron from the n-dotted material leak
+    inside the p-dotted one, because the concentration of electron is smaller there. The same happens for the holes.
+    When an electron enters the p region, it scatters from the conduction band to the valence band. The electron and hole recombine.
+    This leaves a region around the interface free of charge carriers:
+    the depletion region. The electrons are now in the valence band of the p-dopped material, do not contribute to transport anymore but
+    still carry a charge. We therefor have a negatively charged lattice on the p-side of the depletion band. Furter, we have a
+    positively charged lattice on the n-side of the depletion band (the conducting electrons left the ions). 
+    Due to the charge density gradient, there is an electric field forming that works against the diffusion.
+    It prevents further charge carrier leakage between the two semiconductors. 
 
     Since the p and n dotted material have opposite sign in the charge, the y will move in opposite direction under influence of a uniform electric field.
     If we connect the two material to a potential-difference source, it will either make the gap larger or the charge carrier will flow.  
@@ -14,7 +22,21 @@
             lightstyle/.style={circle,draw,fill=red!40,minimum size=5pt, inner sep=0pt}]
             \draw[fill=purple, fill opacity=0.2, dotted] (-1.5-2.25,0) rectangle ++(1,1.5);
             \draw[draw=black,-] (-1-2.25,0)-- ++(0,1.5);
-            \draw[draw=black] (-3-2.25,0) rectangle ++(4,1.5);
+            \draw[draw=black] (-5.25,0) rectangle ++(4,1.5);
+            \node (elec) at (-2.5,2) {\tiny Electron};
+            \node (hole) at (-4.5,2) {\tiny Hole};
+            \node (depl) at (1.7,2) {\tiny Depletion region};
+            \path[-] (1.1,1.3) edge[bend right] (depl);
+            \node at (-4.25,1.6) {\tiny p};
+            \node at (-2.25,1.6) {\tiny n};
+            \node at (0.25,1.6) {\tiny p};
+            \node at (2.25,1.6) {\tiny n};
+            \draw (1.5,0.75) circle (0.15) node {$+$};
+            \draw (1,0.75) circle (0.15) node {$-$};
+            \path[-] ({ -2.85 -2.25+0.3*2},0.15+1.2) edge[bend right] (hole);
+            \path[-] ({ +0.85-2.25-0.3*2},0.15+1.2) edge[bend right] (elec);
+            \draw[thick,<-] (0.75,-0.15) -- (1.75,-0.15)
+                node[midway, below] {$E$};
             \foreach \x in {0,...,4}
                 \foreach \y in {0,...,4} {
                     \node[darkstyle] at
@@ -36,6 +58,11 @@
 
             \draw[fill=purple, fill opacity=0.2, dotted] (-1.5+2.25,0) rectangle ++(1,1.5);
             \draw[draw=black,-] (-1+2.25,0)-- ++(0,1.5);
+            \path[thick,->] (-2.25,-0.1) edge[bend right] node [below, align=center] {\small
+                Diffusion and recombination\\
+                \small$\rightarrow$ equilibrium
+                } (0.25,-0.1);
+
             \draw[draw=black] (-3+2.25,0) rectangle ++(4,1.5);
             \foreach \x in {0,...,4}
                 \foreach \y in {0,...,4} {
@@ -45,10 +72,14 @@
                     ({-0.3*\x - 0.1*mod(\y,2) +0.85+2.25}, {0.3*\y + 0.15}) {};
                     }
 
-
+        \begin{scope}[shift={(0,-1.5)}]
             \draw[draw=black] (-6.25,-1.85) rectangle ++(4,1.5);
-             \draw[draw=black,-] (-4.25,-1.85)-- ++(0,1.5);
+            \draw[draw=black,-] (-4.25,-1.85)-- ++(0,1.5);
+            \draw[draw=black,-] (-6.25,-1.1)-- ++(-0.5,0);
+            \draw[draw=black,-] (-6.75,-1.1)-- ++(0,-0.5) node[below] {\(-\)};
 
+            \draw[draw=black,-] (-2.25,-1.1)-- ++(0.5,0);
+            \draw[draw=black,-] (-1.75,-1.1)-- ++(0,-0.5) node[below] {\(+\)};
 
             \foreach \x in {0,...,2}
                 \foreach \y in {0,...,4} {
@@ -62,6 +93,13 @@
             \draw[draw=black] (0.25,-1.85) rectangle ++(4,1.5);
             \draw[draw=black,-] (2.25,-1.85)-- ++(0,1.5);
 
+            \draw[draw=black,-] (-4.25,-1.85)-- ++(0,1.5);
+            \draw[draw=black,-] (0.25,-1.1)-- ++(-0.5,0);
+            \draw[draw=black,-] (-0.25,-1.1)-- ++(0,-0.5) node[below] {\(+\)};
+
+            \draw[draw=black,-] (4.25,-1.1)-- ++(0.5,0);
+            \draw[draw=black,-] (4.75,-1.1)-- ++(0,-0.5) node[below] {\(-\)};
+
           \foreach \x in {0,...,3}
                 \foreach \y in {0,...,4}{
                     \pgfmathtruncatemacro{\result}{mod(\x,2)}
@@ -73,6 +111,14 @@
                         \node[lightstyle] at ({0.75*\x+0.5+0.7*mod(\y,2)+0.25}, 0.3*\y+ 0.15-1.85) {};
                         \draw[->,thin] ({0.75*\x+0.5+0.7*mod(\y,2)+0.25}, 0.3*\y+ 0.15-1.85) -- ++(-0.3,0);
                     \fi}
+
+            \draw[thick,->] (1.25,-2) -- (3.25,-2)
+                node[midway, below] {$E$};
+
+            \draw[thick,<-] (-5.25,-2) -- (-3.25,-2)
+                node[midway, below] {$E$};
+% \path[use as bounding box] (-7,-4.5) rectangle (0,0);
+            \end{scope}
         \end{tikzpicture}
         \caption{(Top) the electrons and holes at equilibrium after bringing the p and n dotted material at an interface.
             (Left) the reversed direction where the current is blocked. (Right) the forward direction lets the current flow.
