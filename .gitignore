@@ -1,5 +1,5 @@
 ## https://github.com/github/gitignore/blob/main/TeX.gitignore
-
+.vscode/*
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
