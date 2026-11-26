@@ -13,6 +13,7 @@
     Si wafers for the substrate. The substrates are placed on the tape, face towards the crystal powder. We press the tape on the substrate with the fingers to bring the flakes on the Silicon.
     We then localize some flakes candidates using a x20-x50 magnifying optical microscope. These candidates can be verified using energy-dispersive X-ray spectroscopy (EDX). An electron microscope should 
     further be used to ensure that the flake has the most plane contact possible to the substrate. Maximizing the contact area will enhance the current flow from the contact to the crystal.
+    We then report the distance from the flake to their nearest marker over the substrate X and Y axis. 
     If a substrate is considered successfully populated, we proceed with the creation of the contact using electron lithography.
 
     \begin{figure}[H]
@@ -29,20 +30,68 @@
     \end{figure}
 
     \paragraph{Contact fabrication} $~$\\
-    The flakes are a few micrometers long, such that soldering the contact would be too complicated. Instead, we will use electron lithography. The identified substrates receive successive lacking layers.
+    The flakes are a few micrometers long, such that soldering the contact would be too complicated. In this section we will describe our use of electron beam lithography to achieve the contacts.
+    The identified substrates receive successive lacking layers.
     An electrons beam rasters the substrate where the contact should be formed. The electrons alter the lack in such a way, that after developing the substrate only the areas 
-    where electrons hit will remain.
+    where electrons hit will remain. After developing the sample we sputter Niobium. During the lift-off process we remove everything but the Niobium where the lithography happened and obtain 
+    desired Ni contacts.\\
+
+    We use bi-layered electron resist consisting of Polymethyl-Methacrylat (PMMA A4) and MMA-MAA EL 11. PMMA A4 is a positive resist and is a long 
+    -chained polymer. Positive resist have chemical group that causes chain scission under the electron beam. The molecular weight is after electron illumination reduced making the resist selectively soluble
+    when using a suited developer \cite{tolliver1988handbook}.  Trough scattering processes the thickness of the layer influences the resolution \cite{tolliver1988handbook}. For a better resolution a thin layer is 
+    recommended, and the thickness is mainly dependent on the spinner rotational: The higher the angular velocity, the thinner the layer\cite{bajuri2005pmma}. 
+
+    MMA-MAA EL 11 is also a positive resist but its resolution and contrast are worse than PMMA A4. Its use is motivated by eased lift-off. When the electron travel through, they
+    experience stronger scattering and deviated from the original pattern. The result in a blurrier pattern, which translates in a wider cut than in the PMMA4. After sputtering ions deposited 
+    in the patterns will be disconnected from the sputtered ions on the remaining resists. Therefore during the lift-oft, removing the resists will less likely remove the contacts.
+    
+      \begin{figure}[H]
+        \centering
+      \input{TikzEditor/LithographyResist.tex}
+      \caption{The effect of different resist resolution on the contacts after lift-off. \textbf{1)} A standard EL11 has enhanced electron scattering compared to the PMMA A4. This ensures 
+      a wider cut in the resist after development. During sputtering the Niobium must likely doesn't touch the resists. After lift-off, the resists are removed and the contact remains preserved.
+      \textbf{2)} Similar picture for a hypothetical EL11 sharing the same resolution as the PMMA A4. Since the cut will have a well shape, the sputtered Niodium will attach on the sides and 
+      may be removed during lift-off yielding broken contacts.}
+      \end{figure}
 
     We put MMA-MAA EL11 in a syringe and put three drops on the sample. We removed the air bubbles to ensure they will not worse the coating of the sample. The sample is spun at 2500rpm for 90s in order
     to get a uniform distribution of the EL11 on the surface. We solidify the lack by heating the sample at 100\si{\celsius} for 5mins. Similarly, we prepare PMMA A4 in another syringe
-    and after the sample got heat, put some drops as well on the surface. We spin again at 5000rpm for 60s and bake warmer at 180\si{\celsius} for 90s.
+    and after EL11 baking put some drops as well on the surface. We spin again at 5000rpm for 60s and bake warmer at 180\si{\celsius} for 90s  (cf. Fig.\ref{fig:litho}:\textbf{1)}).
+
+    The structure we want to create on the flake is roughly 105\si{\micro\meter} wide and large. To localize the lithography working area we use an SEM. However, every scan illuminates the lack,
+    so we try to reach the nearest marker to the flake the fastest possible, and zoom on it. Doing so, one can adjust the focus the beam without illuminating potential areas where the contacts
+    should pass over.  Using previous distance measurement from the marker to the flake, we mask the electron beam, and move to the supposed location of the flake. 
+    We acquire a low resolution SEM image with a low electron dose of the flake's region. Using 200\si{\micro\ampere\second\per\square\centi\meter} electron dose at 10\si{\kilo\volt} acceleration voltage
+    and 5\si{\milli\meter} working distance, we illuminate the regions of the four points contacts, the leading bands and the contact pads (cf. Fig.\ref{fig:litho}:\textbf{2)}).
+    The contacts on the flake are a few \si{\micro\meter} wide and need a 10\si{\micro\meter} aperture. However, the leading lanes and the pads to not require such precision. We use 
+    a 120\si{\micro\meter} aperture to write them and save time.
+
+    Similar to conventional photographic development, the lithographic pattern is developed by selectively removing regions of the electron resist. The sample is immersed 
+    for 25s in a developer solution consisting of one part of methyl isobutyl  ketone (MIBK) and three parts of isopropyl alcohol (IPA). The development is then stopped in an IPA bath.
 
     \begin{figure}[H]
         \centering
     \input{TikzEditor/Lithography_1.tex}
         \hspace*{36pt}
         \input{TikzEditor/Lithography_2.tex}
+        \vspace{36pt}
 
          \input{TikzEditor/Lithography_3.tex}
+            \hspace*{20pt}
+                    \input{TikzEditor/Lithography_6.tex}
+            \hspace*{20pt}
+        \input{TikzEditor/Lithography_4.tex}
+            \vspace{36pt}
+        
+        \input{TikzEditor/Lithography_5.tex}
+        \caption{Fabrication of Niobium contacts using electron beam lithography. Details are given in the text. \textbf{1)} Coating of the substrate with Co polymer EL11 and  electron resist with A4.
+        \textbf{2)} Writing of the contacts done by illuminating the sample with a focused electron beam. The beam rasters over the desired areas. The light blue cross is the four contacts on the flake. They are 
+        written with a \SI{10}{\micro\meter} aperture. The squares are the pads where the bonds will be done and connected to the measurement apparatus. The pads and leading bands to the contacts (dark blue)
+        are written  with a \SI{120}{\micro\meter} aperture.  \textbf{3)} Development of the lithography. The illuminated part is removed with a mix of MIBK and isopropanol for 25s and stopped in 
+        isopropanol.  \textbf{4)} Effect on an uneven flake surface that leaves some areas of interest unilluminated. No Niobium will be deposited there, potentially yielding discontinuities or broken contacts 
+        \textbf{5)} Sputter with Niobium. \textbf{6)} Lift-off of the device to remove the remaining lack. Only the target contacts remain. Since the electron beam was projected from the top, some lack may have remained on the border of the flake is this one was hollow bellow.
+        Upon cleaning, it will remove the Niobium for uneven surfaces potentially leaving gaps in the contacts.}
+        \label{fig:litho}
     \end{figure}
+
 \end{document}
