@@ -1,0 +1,21 @@
+\begin{tikzpicture}
+  \draw[line join=bevel] (-0.227,5) rectangle (4.173,1.27);
+  \draw[fill=blue!60!pink!29!cyan] (2.16,5) .. controls (2.27,4.2) and (2.31,4.29) .. (3,3.287) .. controls (4.5,1) and (-0.4,1) .. (1,3.31) .. controls (1.6,4.28) and (1.6,4.2) .. (1.64,5) -- cycle;
+  \fill[yellow!51!purple!56, fill opacity=0.7] (1.5,6.9) -- (2.15,6.904) -- (2,5) -- (1.8,5) -- cycle;
+  \draw[fill=cyan!70!blue!60!darkgray] (2.165,5) .. controls (2.275,4.2) and (2.315,4.29) .. (3.005,3.28) .. controls (3.669,1.77) and (0.299,2) .. (1.005,3.31) .. controls (1.605,4.28) and (1.605,4.2) .. (1.645,5) -- cycle;
+  \draw[fill=black!92!magenta!70!teal] (2.165,5) .. controls (2.224,4.453) and (2.3,4.3) .. (2.5,4) .. controls (3,3.29) and (1.14,3.29) .. (1.381,3.918) .. controls (1.664,4.418) and (1.6,4.5) .. (1.645,5) -- cycle;
+  \draw[thick, arrows=-Kite, line cap=round] (2.125,3.895) -- (2.5,5.89);
+  \draw[thick, arrows=-Stealth, line cap=round] (2.5,2.75) -- (3.09,5.36);
+  \draw[->, thick, decorate, decoration=snake, /pgf/decoration/segment length=25pt, line cap=round] (1.4,2.02) -- (0.5,5.38);
+  \node at (2.79,6.18) {Secondary $e^-$};
+  \node at (0.155,5.62) {Characteristic x-rays};
+  \node at (4.17,5.64) {Backscattered $e^-$};
+  \node[rotate=90] (node1) at (4.877,3.287) {Exctinction volume};
+  \node at (-0.946,3.29) {Sample};
+  \draw (4.33,5) -- (4.57,5);
+  \draw (4.324,1.57) -- (4.6,1.573);
+  \draw (4.446,5) -- (4.45,1.57);
+  \draw[semithick, line cap=round] (-0.946,3) .. controls (-0.66,2.67) and (-0.304,2.55) .. (0.124,2.63);
+
+  \node at (1.79,7.14) {$e^-$ beam};
+\end{tikzpicture}

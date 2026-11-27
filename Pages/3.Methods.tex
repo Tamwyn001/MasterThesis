@@ -1,6 +1,42 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 \section{Experimental methods}
+    \subsection{Apparatus}
+    \subsubsection{Scanning electron microscope}
+    Optical microscope work with visible light of wavelength 400-700\si{\nano\meter}. With appropriate optical components there resolving power can go up to 200 \si{\nano\meter} \cite{zhou2006fundamentals}. 
+    Scanning electron microscope (SEM) use accelerated electrons of approximately 4\si{\nano\meter} wavelength and can therefore resolve structures up to 0.5\si{\nano\meter} \cite{zhou2006fundamentals}.
+    In this section we will follow the work presented by \cite{kannan2018scanning} to describe the operating principles of an SEM.
+    
+    The resolution of a microscope is defined as the shortest distance between two points where an observer can still distinguish them. The resolution is defined as $r=\lambda/(2N_a)$ 
+    with $\lambda$ the wavelength of the particle and $N_a$ the numerical aperture. De Broglie states that every massive particle also has a wavelength  $\lambda = h/mv$ ,with $h$ the Plank constant,
+    $m,v$ the mass and velocity of the particle. Accelerating the electron in an electrical potential theoretically increases their velocity and the resolution. 
+
+    When the incident electron enters the samples it loses energy random scattering and absorption events. The scattering volume is teared-shape and can reach 100\si{\nano\meter} to
+    10\si{\micro\meter} depending on the landing energy of the electron, the sample's density and atomic numbers. The scattering events are high energy elastic back scattered electron,
+    secondary electron and characteristic X-ray emissions among others. Each process can be separately detected with electronic amplifiers and signal to digital image convertors that 
+    display an image on a monitor. Fig. \ref{fig:SEM} shows the different regions where these signals are emitted. A strong acceleration voltage results on a deeper penetration of the electrons
+    in the samples and a loss in the surface signal quality. A corny surface can then appear smoothed out.
+
+    The secondary electrons result from the ionization of the specimen atoms by the incoming electrons. They are low-energy electrons 3-5eV and can only travel a few 
+    nanometers inside the specimen \cite{zhou2006fundamentals}. Therefore, the one we capture topography with a good resolution. Due to their low energy, they are 
+    more easily captured by a detector of positive bias, and filtered by a Faraday cage in case the trajectory is not totally incident (i.e. coming from another region of the sample). Finally, the signal is amplified  by a scintillator converting the
+    electrons to photons and a photomultiplier enhances the light signal and converts it back into an electric one.
+    
+    The backscattered electrons are deflected electrons that travel back near the electron beam. An in-lense detector can then capture them. Elements of higher atomic number have enhanced positive
+    charge in the nucleus. Therefore, heavier elements appear brighter because more electron from the beam get deflected. It is useful for the mapping the different sample's chemical regions.
+
+    Finally, when the high-energy electrons hit an electron of the inner shell of an atom, it leaves this one ionized. Because it is energetically more
+    favorable, an electron from a higher orbit scatters to this freed state,  The transition emits lights whose energy corresponds the levels' energy difference.  The emitted photons are x-rays and their wavelength is characteristic of the atom they were emitted from.
+    Since each atom fills its vacant shells in a unique way, every atom has a distinct series of peak that can be seen as its signature. These are the characteristic x-rays, and they can be collected
+    by an energy dispersive x-ray detector (EDX) and be used to identify a region's composition.
+    \begin{figure}
+        \centering
+        \input{TikzEditor/SEM_1.tex}
+        \caption{}
+        \label{fig:SEM}
+    \end{figure}
+
+    
     The first part of this work is to measure transport properties through an CeRu$_4$Sn$_6$ Josephson junction.
     This is achieved by cutting the crystal, so that a few nanometer separate both parts, and then connect the parts to a measurement circuit. The crystal parts (flakes) are a few dozen of 
     micrometers wide, fixed on a Si substrate and connected by Niob contacts to external measurement device. These contacts are realized by electron lithography.
@@ -42,7 +78,7 @@
     recommended, and the thickness is mainly dependent on the spinner rotational: The higher the angular velocity, the thinner the layer\cite{bajuri2005pmma}. 
 
     MMA-MAA EL 11 is also a positive resist but its resolution and contrast are worse than PMMA A4. Its use is motivated by eased lift-off. When the electron travel through, they
-    experience stronger scattering and deviated from the original pattern. The result in a blurrier pattern, which translates in a wider cut than in the PMMA4. After sputtering ions deposited 
+    experience stronger scattering and are deviated from the original pattern. The result is a blurrier pattern, which translates in a wider cut in EL 11 than in A4. After sputtering, ions deposited 
     in the patterns will be disconnected from the sputtered ions on the remaining resists. Therefore during the lift-oft, removing the resists will less likely remove the contacts.
     
       \begin{figure}[H]
@@ -93,5 +129,7 @@
         Upon cleaning, it will remove the Niobium for uneven surfaces potentially leaving gaps in the contacts.}
         \label{fig:litho}
     \end{figure}
+
+
 
 \end{document}
